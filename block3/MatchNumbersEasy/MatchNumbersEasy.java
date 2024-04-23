@@ -1,30 +1,40 @@
 
+import java.math.BigInteger;
+
 public class MatchNumbersEasy {
-    public String maxNumber(int[] matches, int n) {
-        String[] dp = new String[n + 1];
-        dp[0] = "";
-        for (int i = 0; i <= n; i++) {
-            for (int j = 0; j < matches.length; j++) {
-                if (i >= matches[j] && dp[i - matches[j]] != null && (!dp[i - matches[j]].isEmpty() || j > 0)) {
-                    dp[i] = max(dp[i], j + dp[i - matches[j]]);
-                }
+    public String maxNumber(int[] matches, int n)
+    {
+        dp = new BigInteger[51];
+        for (int i = 0; i < 51; i++)
+        {
+            dp[i] = BigInteger.valueOf(0);
+        }
+        BigInteger val = Solve(matches, n);
+        return val.toString();
+    }
+
+    BigInteger[] dp;
+    BigInteger Solve(int[] mat, int n)
+    {
+        BigInteger ret = BigInteger.valueOf(0);
+        if (dp[n].compareTo(ret) != 0)
+            return dp[n];
+        BigInteger ten = BigInteger.valueOf(10);
+        for (int i = 0; i < mat.length; i++) {
+
+            if (mat[i] <= n) {
+                BigInteger tmp = ten.multiply(Solve(mat, n- mat[i])).add(BigInteger.valueOf(i));
+                ret = ret.max(tmp);
             }
         }
-        return dp[n] == null ? "0" : dp[n];
+        dp[n] = ret;
+        return ret;
     }
-
-    private String max(String a, String b) {
-        if (a == null) return b;
-        if (b == null) return a;
-        if (a.length() != b.length()) return a.length() > b.length() ? a : b;
-        return a.compareTo(b) > 0 ? a : b;
-    }
-
 
 
     public static void main(String[] args) {
         MatchNumbersEasy easy = new MatchNumbersEasy();
-        System.out.println(easy.maxNumber(new int[]{1,1,1,1,1,1,1,1,1,1}
-                , 50));
+        System.out.println(easy.maxNumber(new int[]{6,7,8}
+                , 21));
     }
 }
