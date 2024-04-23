@@ -4,11 +4,9 @@ public class MatchNumbersEasy {
         String[] dp = new String[n + 1];
         dp[0] = "";
         for (int i = 0; i <= n; i++) {
-            if (dp[i] != null) {
-                for (int j = 0; j < matches.length; j++) {
-                    if (i + matches[j] <= n) {
-                        dp[i + matches[j]] = max(dp[i + matches[j]], j + dp[i]);
-                    }
+            for (int j = 0; j < matches.length; j++) {
+                if (i >= matches[j] && dp[i - matches[j]] != null && (!dp[i - matches[j]].isEmpty() || j > 0)) {
+                    dp[i] = max(dp[i], j + dp[i - matches[j]]);
                 }
             }
         }
@@ -21,6 +19,7 @@ public class MatchNumbersEasy {
         if (a.length() != b.length()) return a.length() > b.length() ? a : b;
         return a.compareTo(b) > 0 ? a : b;
     }
+
 
 
     public static void main(String[] args) {
