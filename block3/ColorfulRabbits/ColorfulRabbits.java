@@ -12,14 +12,15 @@ public class ColorfulRabbits {
         }
         Map<Integer, List<Integer>> map = list.stream().collect(Collectors.groupingBy(Integer::intValue));
         for (Integer i : map.keySet()) {
-            count += (i + 1) * (map.get(i).size() / (i + 1) + 1);
+            int j = map.get(i).size() % (i + 1) == 0 ? map.get(i).size() / (i + 1) : map.get(i).size() / (i + 1) + 1;
+            count += (i + 1) * j;
         }
         return count;
     }
 
     public static void main(String[] args) {
         System.out.println(new ColorfulRabbits().getMinimum(new int[]
-                {2, 2, 44, 2, 2, 2, 444, 2, 2}
+                {0}
         ));
     }
 }
