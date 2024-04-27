@@ -1,0 +1,56 @@
+*******************
+* Group practice *
+*******************
+*List the problems you attempted, your scores so far for each
+*problem, and which Java API Classes and methods you used to solve
+*each problem.
+*Eg. SlowKeyBoard: 90 out of 90
+*ArrayList (size, add, get), Arrays.sort
+
+Problem1: UnsealTheSafe: 90 out of 90
+
+Problem2: RGBStreet: 90 out of 90
+Math(min)
+Problem3: MatchNumbersEasy 60 out of 90
+-- Reflection --
+*Were the problems attempted in the lab easy/medium/challenging?
+*After this practice, how confident you feel when solving this
+*problem type?
+*What else did you learn from the group practice?
+
+UnsealTheSafe is a DP problem with a two dimensions array, and we should consider the special adjacency between each
+number in the keyboard.
+RGBStreet is a DP problem with a two dimensions array too, we need to note all three color positives of each house.
+After the practice I am familiar to the idea of constructing the state transition equation.
+MatchNumbersEasy is complex when it comes to string handling, and I don't think that's a good innovation for an
+algorithm problem.
+I did UnsealTheSafe and MatchNumbersEasy with the group and it took us a couple of hours.
+
+
+************************
+* Individual practice *
+************************
+List the problems you attempted, and your scores so far for each
+problem, and which Java API Classes and methods you used to solve
+each problem.
+
+Problem4: CastleGuards: 90 out of 90
+ Math(min)
+
+Problem5: ColorfulRabbits: 90 out of 90
+Collection(stream(collect)),Collectors(groupingBy), Map(get,keySet), List(size)
+
+
+Problem6: ForestGarbage: 30 out of 90
+Math(min)
+
+
+-- Reflection --
+*Explain the rationale behind your choice of individual practice.
+*Which area you focused on improving (eg. speed, fluency, algorithmic
+*design, coding)?
+*What are your goals for the next block of practice？
+
+CastleGuards is an easy graph problem, ColorfulRabbits is an interesting math problem, and ForestGarbage is very complicated
+when it comes to graph searching.
+I mainly focus on algorithm design.
